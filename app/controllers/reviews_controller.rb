@@ -9,9 +9,10 @@ class ReviewsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review.restaurant = @restaurant
     if @review.save
-      redirect_to restaurant_reviews_path(@restaurant)
+      redirect_to restaurant_path(@restaurant)
     else
-      render "restaurants/show"
+      render :new
+      # render "restaurants/show"
     end
   end
 
