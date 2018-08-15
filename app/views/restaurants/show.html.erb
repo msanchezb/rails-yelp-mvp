@@ -1,0 +1,14 @@
+<h1>Restaurant: <%= @restaurant.name %></h1>
+<p><%= @restaurant.address %></p>
+<p><%= @restaurant.phone_number %></p>
+<p><%= @restaurant.category %></p>
+
+
+<h4>New review</h4>
+<% if @review.nil? %>
+  <% @review = Review.new %>
+<% end %>
+<%= render 'reviews/form', review: @review %>
+
+<%= link_to "See reviews", restaurant_reviews_path(@restaurant) %>
+<%= link_to "Back", restaurants_path %>
